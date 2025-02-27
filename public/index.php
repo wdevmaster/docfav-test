@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-use Whoops\Handler\PrettyPageHandler;
-use Whoops\Run;
-use Dotenv\Dotenv;
-
 // Change the working directory to the root of the project
 chdir(dirname(__DIR__));
 
@@ -13,13 +9,21 @@ chdir(dirname(__DIR__));
 if (file_exists('vendor/autoload.php')) {
     require 'vendor/autoload.php';
 } else {
-    throw new RuntimeException('vendor/autoload.php not found. Please run composer install.');
+    fwrite(STDERR, 'vendor/autoload.php could not be found. Did you run `composer install`?' . PHP_EOL);
+    exit(1);
 }
 
 // Configure Whoops
-$whoops = (new Run())->pushHandler(new PrettyPageHandler());
-$whoops->register();
+require __DIR__ . '/../config/whoops.php';
 
 // Load environment variables
-$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+require __DIR__ . '/../config/dotenv.php';
+
+// Set up Monolog
+require __DIR__ . '/../config/monolog.php';
+
+// Set up dependencies
+require __DIR__ . '/../config/dependencies.php';
+
+// Handle request
+require __DIR__ . '/../routes.php';

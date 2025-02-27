@@ -29,17 +29,6 @@ final class User
         );
     }
 
-    public static function fromArray(array $data): self
-    {
-        return new self(
-            UserId::fromString($data['id']),
-            Name::fromString($data['name']),
-            Email::fromString($data['email']),
-            new Password($data['password']),
-            CreatedAt::fromString($data['created_at'])
-        );
-    }
-
     public function getId(): UserId
     {
         return $this->id;
