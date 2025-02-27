@@ -31,6 +31,9 @@ RUN docker-php-ext-install  zip mbstring exif pcntl bcmath -j$(nproc) gd intl
 # Install the PHP pdo_mysql extention
 RUN docker-php-ext-install pdo_mysql
 
+# Install the PHP pdo_pgsql extention
+RUN docker-php-ext-install pdo_pgsql
+
 # Install PHP Opcache extention
 RUN docker-php-ext-install opcache
 

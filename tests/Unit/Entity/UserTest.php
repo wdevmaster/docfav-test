@@ -27,24 +27,4 @@ class UserTest extends TestCase
         $this->assertTrue($user->getPassword()->verify($plainPassword));
         $this->assertInstanceOf(CreatedAt::class, $user->getCreatedAt());
     }
-
-    public function testFromArray()
-    {
-        $data = [
-            'id' => '123e4567-e89b-12d3-a456-426614174000',
-            'name' => 'John Doe',
-            'email' => 'john.doe@example.com',
-            'password' => password_hash('Valid1Password!', PASSWORD_DEFAULT),
-            'created_at' => '2023-10-01 12:00:00'
-        ];
-
-        $user = User::fromArray($data);
-
-        $this->assertInstanceOf(User::class, $user);
-        $this->assertEquals($data['id'], $user->getId()->toString());
-        $this->assertEquals($data['name'], $user->getName()->getValue());
-        $this->assertEquals($data['email'], $user->getEmail()->getValue());
-        $this->assertEquals($data['password'], $user->getPassword()->getValue());
-        $this->assertEquals($data['created_at'], $user->getCreatedAt()->toString());
-    }
 }

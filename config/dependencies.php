@@ -20,4 +20,6 @@ $registerUserUseCase = new RegisterUser($userRepository, $checkUserExistsUseCase
 
 // Set up controllers
 use App\Presentation\Controller\RegisterUserController;
-$registerUserController = new RegisterUserController($registerUserUseCase);
+use App\Infrastructure\Exception\ExceptionHandler;
+$exceptionHandler = new ExceptionHandler();
+$registerUserController = new RegisterUserController($registerUserUseCase, $exceptionHandler);

@@ -2,7 +2,9 @@
 /public/build
 /vendor
 .env
+.env.backup
 .phpunit.result.cache
 /.idea
 /.vscode
 *.log
+*.sqlite

@@ -3229,12 +3229,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "4ede73aa7a73d81506002d2caadbbdad1ef5b69a"
+                "reference": "d63b3d4b4e1c809f9dfa8092fdfb937e00a5f37b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/4ede73aa7a73d81506002d2caadbbdad1ef5b69a",
-                "reference": "4ede73aa7a73d81506002d2caadbbdad1ef5b69a",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/d63b3d4b4e1c809f9dfa8092fdfb937e00a5f37b",
+                "reference": "d63b3d4b4e1c809f9dfa8092fdfb937e00a5f37b",
                 "shasum": ""
             },
             "require": {
@@ -3297,7 +3297,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-02-13T10:27:23+00:00"
+            "time": "2025-02-28T16:43:04+00:00"
         },
         {
             "name": "symfony/yaml",

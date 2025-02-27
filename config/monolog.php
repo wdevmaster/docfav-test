@@ -8,3 +8,4 @@ $logger = new Logger('app');
 $logger->pushHandler(new StreamHandler(__DIR__ . '/../app.log', Logger::DEBUG));
 
 ErrorHandler::register($logger);
+return $logger;
