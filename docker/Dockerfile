@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -78,6 +78,8 @@ RUN touch /var/run/nginx.pid && \
     chown -R www-data.www-data /var/run/nginx.pid
 
 RUN chown -R www-data.www-data /var/log/supervisor
+
+USER www-data
 
 EXPOSE 80
 ENTRYPOINT ["entrypoint.sh"]
