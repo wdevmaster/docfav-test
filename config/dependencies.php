@@ -3,10 +3,10 @@
 $entityManager = require __DIR__ . '/../config/doctrine.php';
 
 // Set up Event Dispatcher and Listener Provider
-// use App\Infrastructure\Service\UserRegisteredEventHandler;
-// use App\Infrastructure\Service\EventDispatcher;
-// $listenerProvider = new UserRegisteredEventHandler();
-// $eventDispatcher = new EventDispatcher($listenerProvider);
+use App\Infrastructure\Service\UserRegisteredEventHandler;
+use App\Infrastructure\Service\EventDispatcher;
+$listenerProvider = new UserRegisteredEventHandler();
+$eventDispatcher = new EventDispatcher($listenerProvider);
 
 // Set up dependencies
 use App\Infrastructure\Persistence\Doctrine\DoctrineUserRepository;
@@ -16,7 +16,7 @@ $userRepository = new DoctrineUserRepository($entityManager);
 use App\Application\CheckUserExists;
 use App\Application\RegisterUser;
 $checkUserExistsUseCase = new CheckUserExists($userRepository);
-$registerUserUseCase = new RegisterUser($userRepository, $checkUserExistsUseCase);
+$registerUserUseCase = new RegisterUser($userRepository, $checkUserExistsUseCase, $eventDispatcher);
 
 // Set up controllers
 use App\Presentation\Controller\RegisterUserController;
